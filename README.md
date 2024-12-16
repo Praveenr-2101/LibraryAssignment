@@ -18,7 +18,6 @@ This project is a Django-based Library Management System that allows users to ma
 Ensure the following are installed:
 - Python 3.8+
 - Django 4.x
-- PostgreSQL (or your preferred database)
 - Redis (for Celery)
 - Virtual Environment (venv)
 
