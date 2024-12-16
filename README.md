@@ -26,3 +26,59 @@ Ensure the following are installed:
    ```bash
    git clone https://github.com/your-username/library-management.git
    cd library-management
+
+
+##Run Project
+
+```bash
+   cd Library
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   cd Library
+   python manage.py runserver
+```
+
+##Celery setup
+
+```
+   pip install celery[redis]
+
+   setting configuration of celery
+
+   proj/proj/celery.py
+      -Configuring Celery for Asynchronous Task Handling in Django
+
+   proj/proj/__init__.py
+      -Initializing Celery Integration with the Django Project
+
+   app/task.py
+      -Using the @shared_task decorator create task
+
+   Trigger tasks in views.py:
+      - celery will run background once it trigger the task
+```
+##celery Worker
+```
+   celery -A proj worker -l INFO
+```
+
+
+###Docker Image container
+
+```
+   pip freeze > requirements.txt
+
+   Create a Dockerfile
+      -Setting Up the Docker Environment for Django Application
+
+   Create a docker-compose.yml
+      -Multi-Container Setup for Django and db
+
+   Build the containers:
+      -docker-compose build
+
+   Run the containers:
+      -docker-compose up
+```   
+
+
