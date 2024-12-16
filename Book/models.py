@@ -1,4 +1,10 @@
 from django.db import models
+    
+from django.contrib.auth import signals
+from rest_framework import serializers
+from django.dispatch import receiver
+
+from django.db.models.signals import post_save, pre_delete,pre_save
 
 # Create your models here.
 
@@ -22,12 +28,7 @@ class BorrowRecord(models.Model):
     borrowed_date=models.DateField(auto_now_add=True)
     return_date=models.DateField(blank=True, null=True)
      
-    
-from django.contrib.auth import signals
-from rest_framework import serializers
-from django.dispatch import receiver
 
-from django.db.models.signals import post_save, pre_delete,pre_save
 
     
 @receiver(post_save, sender=BorrowRecord)
@@ -36,6 +37,5 @@ def borrow(sender,instance,created,**kwargs):
         book=Book.objects.get(id=instance.book.id)
         book.available_copies -= 1
         book.save()
-        
         print("I have done my work")
             

@@ -130,7 +130,7 @@ class BookDetail(APIView):
     
     
     
-    def put(self,request,pk):
+    def put(self,request,pk):    
         try:
             book=Book.objects.get(pk=pk)
             serializers=Bookserilaizer(book,data=request.data)

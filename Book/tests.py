@@ -16,7 +16,7 @@ class AuthorAPITestCase(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {self.access_token}')
 
         self.author_data = {"name": "John Doe", "bio": "A famous author"}
-        self.author = Author.objects.create(name="Jane Doe", bio="Another famous author")
+        self.author = Author.objects.create(name="Jane Doe", bio="Another famous author")   
 
     def test_create_author(self):
         response = self.client.post('/Author', self.author_data)  

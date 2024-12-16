@@ -20,7 +20,7 @@ from django.urls import path,include
 from django.http import JsonResponse
 
 def index(request):
-    return JsonResponse({"message": "Welcome to the Library API!"})
+    return JsonResponse({"message": "Welcome to the Library Management System!"})
 
 
 urlpatterns = [

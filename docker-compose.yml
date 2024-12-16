@@ -1,18 +1,4 @@
 
-# version: '3.8'
-
-# services:
-#   app:
-#     build: .
-#     volumes:
-#       - .:/django
-#     ports:
-#       - "8000:8000"
-#     image: application:django
-#     container_name: Library_container
-#     command: gunicorn Library.wsgi:application --bind 0.0.0.0:8000
-
-
 version: '3.8'
 
 services:

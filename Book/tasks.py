@@ -6,7 +6,7 @@ from django.conf import settings
 from .models import Author, Book, BorrowRecord
 import logging
 
-# Set up logger
+
 logger = logging.getLogger(__name__)
 
 @shared_task
