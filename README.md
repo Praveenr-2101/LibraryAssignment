@@ -21,14 +21,14 @@ Ensure the following are installed:
 - Redis (for Celery)
 - Virtual Environment (venv)
 
-### Setup Instructions
+## Setup Instructions
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/your-username/library-management.git
    cd library-management
 
 
-##Run Project
+## Run Project
 
 ```bash
    cd Library
@@ -38,7 +38,7 @@ Ensure the following are installed:
    python manage.py runserver
 ```
 
-##Celery setup
+## Celery setup
 
 ```
    pip install celery[redis]
@@ -57,13 +57,13 @@ Ensure the following are installed:
    Trigger tasks in views.py:
       - celery will run background once it trigger the task
 ```
-##celery Worker
+## celery Worker
 ```
    celery -A proj worker -l INFO
 ```
 
 
-###Docker Image container
+## Docker Image container
 
 ```
    pip freeze > requirements.txt
@@ -81,7 +81,7 @@ Ensure the following are installed:
       -docker-compose up
 ```   
 
-Brief explanation of my approach.
+## Brief explanation of my approach.
 
 1. Separation of Concerns
 Views handle CRUD operations for entities like Author, Book, and BorrowRecord.
