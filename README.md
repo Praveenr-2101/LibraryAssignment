@@ -81,4 +81,42 @@ Ensure the following are installed:
       -docker-compose up
 ```   
 
+Brief explanation of my approach.
+
+1. Separation of Concerns
+Views handle CRUD operations for entities like Author, Book, and BorrowRecord.
+Serializers validate and transform data, including custom checks like available_copies in books.
+Impelement signals post_save() for borrow item 
+
+3. APIView Usage
+APIView explicitly defines methods (get, post, put, delete) for better control.
+Example: AuthorList manages listing and creating authors, while AuthorDetail handles specific author operations.
+
+4. Validation and Error Handling
+Custom validations, like verifying available_copies, are implemented in serializers.
+try-except blocks in views handle exceptions, returning appropriate responses (e.g., 404 for missing resources)
+
+5. JWT Authentication
+rest_framework_simplejwt secures endpoints with token-based authentication.
+Login and token refresh are managed via TokenObtainPairView and TokenRefreshView.
+
+6. Asynchronous Task for Report Generation
+Celery processes tasks like generate_report.delay() asynchronously.
+Reports are stored in a directory and served efficiently using FileResponse.
+
+7. Test Cases
+Test cases validate API functionality, such as creating authors or borrowing records.
+setUp initializes test data and handles JWT authentication for assertions.
+
+8. URL Routing
+URLs are logically grouped for entities like Author, Book, and reports.
+JWT token endpoints for login and refresh are included.
+
+9. Custom Serialization Logic
+BookSerializer supports nested serialization and custom create/update methods.
+This ensures seamless handling of relationships and data integrity.
+
+10. Permissions
+IsAuthenticated restricts access to authenticated users, ensuring secure endpoints.
+This adheres to REST principles and best practices.
 
